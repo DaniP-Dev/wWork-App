@@ -1,15 +1,14 @@
-import ClientLayout from "@/layouts/ClientLayout";
+export async function getServerSideProps(context) {
+    return {
+        redirect: {
+            destination: '/marketplace',
+            permanent: false,
+        },
+    };
+}
 
 const HomePage = () => {
-    return (
-        <ClientLayout>
-            <div>
-                <h1>Bienvenido al Marketplace</h1>
-                <p>Aquí encontrarás una variedad de productos disponibles para su compra.</p>
-                {/* Puedes agregar más componentes y contenido aquí */}
-            </div>
-        </ClientLayout>
-    );
-}
+    return null;
+};
 
 export default HomePage;
