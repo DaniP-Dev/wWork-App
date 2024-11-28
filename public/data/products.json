@@ -58,5 +58,11 @@
         "description": "Impresora 3D de alta precisión para proyectos y prototipos.",
         "price": "$800",
         "image": "https://via.placeholder.com/150"
+    },
+    {
+        "name": "Impresora 3D",
+        "description": "Impresora 3D de alta precisión para proyectos y prototipos.",
+        "price": "$800",
+        "image": "https://via.placeholder.com/150"
     }
 ]
