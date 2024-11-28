@@ -1,10 +1,9 @@
 import React from 'react';
 
-const Content = ({ title, children }) => {
+const Content = ({ children }) => {
     return (
-        <div className="p-4">
-            <h1 className="text-2xl font-bold mb-4">{title}</h1>
-            <div>{children}</div>
+        <div className='bg-red-500 flex-1 p-4 overflow-auto'>
+            {children}
         </div>
     );
 };
