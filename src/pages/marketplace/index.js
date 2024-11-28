@@ -4,7 +4,6 @@ import ProductCard from '@/components/ProductCard';
 
 const MarketplacePage = () => {
     const [products, setProducts] = useState([]);
-    const [error, setError] = useState(null);
 
     useEffect(() => {
         fetch('/data/products.json')
@@ -15,26 +14,17 @@ const MarketplacePage = () => {
                 return response.json();
             })
             .then(data => setProducts(data))
-            .catch(error => setError(error.message));
+            .catch(error => console.error('Error al cargar los productos:', error));
     }, []);
 
     return (
         <ClientLayout>
             <div>
-                <p>Aquí encontrarás una variedad de productos disponibles para su compra.</p>
-                {error ? (
-                    <p className="text-red-500">Error: {error}</p>
-                ) : (
-                    <div className="flex flex-wrap">
-                        {products.length === 0 ? (
-                            <p>No hay productos disponibles en este momento.</p>
-                        ) : (
-                            products.map(product => (
-                                <ProductCard key={product.id} product={product} />
-                            ))
-                        )}
-                    </div>
-                )}
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    {products.map((product, index) => (
+                        <ProductCard key={index} product={product} />
+                    ))}
+                </div>
             </div>
         </ClientLayout>
     );

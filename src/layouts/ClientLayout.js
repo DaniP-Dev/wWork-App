@@ -7,6 +7,7 @@ const ClientLayout = ({ children }) => {
         <>
             <Header />
             <Content> {children} </Content>
+            <Footer />
         </>
     );
 };
