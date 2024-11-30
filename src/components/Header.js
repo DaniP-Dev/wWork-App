@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Header = ({ onToggleSidebar, isAdmin }) => {
+const Header = ({ onToggleSidebar, isAdmin, showMarketplaceButton, showLogoutButton, showLoginButton }) => {
     return (
         <header className="bg-blue-600 text-white p-4 shadow-lg flex justify-between items-center">
             <div className="flex items-center space-x-4">
@@ -16,15 +16,21 @@ const Header = ({ onToggleSidebar, isAdmin }) => {
             </div>
             <nav className="hidden md:flex space-x-6">
                 <a className="hover:underline" href="#">Inicio</a>
-                <a className="hover:underline" href="#">Marketplace</a>
+                {showMarketplaceButton && <a className="hover:underline" href="#">Marketplace</a>}
                 <a className="hover:underline" href="#">Acerca de</a>
-                {isAdmin && <a className="hover:underline" href="#">Admin</a>}
                 <a className="hover:underline" href="#">Contacto</a>
+                {isAdmin && <a className="hover:underline" href="#">Admin</a>}
             </nav>
             <div className="hidden md:block">
-                <button className="bg-white text-blue-600 py-2 px-4 rounded hover:bg-gray-200">
-                    Iniciar Sesión
-                </button>
+                {showLogoutButton ? (
+                    <button className="bg-white text-blue-600 py-2 px-4 rounded hover:bg-gray-200">
+                        Cerrar Sesión
+                    </button>
+                ) : showLoginButton ? (
+                    <button className="bg-white text-blue-600 py-2 px-4 rounded hover:bg-gray-200">
+                        Iniciar Sesión
+                    </button>
+                ) : null}
             </div>
             {!isAdmin && (
                 <div className="md:hidden">
@@ -38,3 +44,4 @@ const Header = ({ onToggleSidebar, isAdmin }) => {
 };
 
 export default Header;
+

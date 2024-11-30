@@ -5,7 +5,7 @@ import Content from "@/components/Content";
 const ClientLayout = ({ children }) => {
     return (
         <>
-            <Header />
+            <Header showMarketplaceButton={false} showLogoutButton={false} showLoginButton={false} />
             <Content> {children} </Content>
             <Footer />
         </>
@@ -13,4 +13,3 @@ const ClientLayout = ({ children }) => {
 };
 
 export default ClientLayout;
-

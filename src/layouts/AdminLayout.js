@@ -8,14 +8,12 @@ const AdminLayout = ({ children }) => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
     const toggleSidebar = (e) => {
-        e.stopPropagation(); 
+        e.stopPropagation();
         setIsSidebarOpen(!isSidebarOpen);
-        console.log("Toggle Sidebar");
     };
 
     const closeSidebar = () => {
         setIsSidebarOpen(false);
-        console.log("Close Sidebar");
     };
 
     useEffect(() => {
@@ -31,7 +29,7 @@ const AdminLayout = ({ children }) => {
 
     return (
         <>
-            <Header onToggleSidebar={toggleSidebar} isAdmin />
+            <Header onToggleSidebar={toggleSidebar} isAdmin showMarketplaceButton showLogoutButton showLoginButton />
             <div className="flex relative">
                 <Sidebar isOpen={isSidebarOpen} />
                 <Content className="flex-1">{children}</Content>
