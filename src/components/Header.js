@@ -1,11 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const Header = ({ onToggleSidebar, isAdmin, showMarketplaceButton, showLogoutButton, showLoginButton }) => {
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+    const toggleMenu = () => {
+        setIsMenuOpen(!isMenuOpen);
+    };
+
     return (
         <header className="bg-blue-600 text-white p-4 shadow-lg flex justify-between items-center">
             <div className="flex items-center space-x-4">
                 {isAdmin && (
-                    <button onClick={onToggleSidebar} className="p-2">
+                    <button onClick={onToggleSidebar} className="p-2 md:hidden">
                         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7"></path>
                         </svg>
@@ -32,16 +38,31 @@ const Header = ({ onToggleSidebar, isAdmin, showMarketplaceButton, showLogoutBut
                     </button>
                 ) : null}
             </div>
-            {!isAdmin && (
-                <div className="md:hidden">
-                    <button className="text-white" onClick={onToggleSidebar}>
-                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-                    </button>
-                </div>
-            )}
+            <div className="md:hidden">
+                <button className="text-white" onClick={toggleMenu}>
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+                {isMenuOpen && (
+                    <div className="absolute top-16 left-0 w-full bg-blue-600 text-white flex flex-col items-start p-4 z-40">
+                        <a className="hover:underline py-2" href="#">Inicio</a>
+                        {showMarketplaceButton && <a className="hover:underline py-2" href="#">Marketplace</a>}
+                        <a className="hover:underline py-2" href="#">Acerca de</a>
+                        <a className="hover:underline py-2" href="#">Contacto</a>
+                        {isAdmin && <a className="hover:underline py-2" href="#">Admin</a>}
+                        {showLogoutButton ? (
+                            <button className="bg-white text-blue-600 py-2 px-4 rounded hover:bg-gray-200 my-2 w-full">
+                                Cerrar Sesión
+                            </button>
+                        ) : showLoginButton ? (
+                            <button className="bg-white text-blue-600 py-2 px-4 rounded hover:bg-gray-200 my-2 w-full">
+                                Iniciar Sesión
+                            </button>
+                        ) : null}
+                    </div>
+                )}
+            </div>
         </header>
     );
 };
 
 export default Header;
-
