@@ -1,15 +1,18 @@
+import AddProduct from '@/components/AddProduct';
+import AdminLayout from '@/layouts/AdminLayout';
 import React from 'react';
 
 const AgregarP = () => {
     return (
-        <div >
-            <p>Hola</p>
-            <p>Hola</p>
-            <p>Hola</p>
-            <p>Hola</p>
-            <p>Hola</p>
+        <>
+            <AdminLayout>
+                <div className='flex justify-center'>
+                    <AddProduct/>
 
-        </div>
+                </div>
+
+            </AdminLayout>
+        </>
     );
 };
 
