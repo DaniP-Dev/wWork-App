@@ -1,8 +1,9 @@
 import React from 'react';
 
-const Content = ({ children }) => {
+const Content = ({ children, className = '' }) => {
     return (
-        <div className='bg-red-500 flex-1 p-4 overflow-auto'>
+        <div className={`p-4 bg-red-500 ${className} flex flex-col flex-1`} style={{ border: "2px solid white" }}>
+            <h1 className="text-2xl font-bold mb-4">Panel de Administración</h1>
             {children}
         </div>
     );

@@ -8,10 +8,10 @@ const Header = ({ onToggleSidebar, isAdmin, showMarketplaceButton, showLogoutBut
     };
 
     return (
-        <header className="bg-blue-600 text-white p-4 shadow-lg flex justify-between items-center">
+        <header className="bg-blue-600 text-white p-4 shadow-lg flex justify-between items-center sticky top-0 z-50">
             <div className="flex items-center space-x-4">
                 {isAdmin && (
-                    <button onClick={onToggleSidebar} className="p-2 md:hidden">
+                    <button onClick={onToggleSidebar} className="p-2 ">
                         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7"></path>
                         </svg>

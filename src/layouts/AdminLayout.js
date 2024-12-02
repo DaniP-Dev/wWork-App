@@ -30,11 +30,13 @@ const AdminLayout = ({ children }) => {
     return (
         <>
             <Header onToggleSidebar={toggleSidebar} isAdmin showMarketplaceButton showLogoutButton showLoginButton />
-            <div className="flex relative">
-                <Sidebar isOpen={isSidebarOpen} />
-                <Content className="flex-1">{children}</Content>
+            <div className="flex flex-col min-h-screen relative">
+                <div className="flex flex-1">
+                    <Sidebar isOpen={isSidebarOpen} />
+                    <Content className="flex-1">{children}</Content>
+                </div>
+                <Footer />
             </div>
-            <Footer />
         </>
     );
 };
