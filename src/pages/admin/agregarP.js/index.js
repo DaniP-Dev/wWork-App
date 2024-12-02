@@ -2,7 +2,7 @@ import React from 'react';
 
 const AgregarP = () => {
     return (
-        <div>
+        <div >
             <p>Hola</p>
             <p>Hola</p>
             <p>Hola</p>

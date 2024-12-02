@@ -31,9 +31,9 @@ const AdminLayout = ({ children }) => {
         <>
             <Header onToggleSidebar={toggleSidebar} isAdmin showMarketplaceButton showLogoutButton showLoginButton />
             <div className="flex flex-col min-h-screen relative">
-                <div className="flex flex-1">
+                <div className="flex flex-1 ">
                     <Sidebar isOpen={isSidebarOpen} />
-                    <Content className="flex-1">{children}</Content>
+                    <Content className="flex-1 flex flex-col">{children}</Content>
                 </div>
                 <Footer />
             </div>
