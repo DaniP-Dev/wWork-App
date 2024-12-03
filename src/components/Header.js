@@ -10,6 +10,10 @@ const Header = ({ onToggleSidebar, isAdmin, showMarketplaceButton, showLogoutBut
         setIsMenuOpen(!isMenuOpen);
     };
 
+    const navigateTo = (path) => {
+        window.open(path, '_blank');
+    };
+
     return (
         <header className="bg-blue-600 text-white p-4 shadow-lg flex justify-between items-center sticky top-0 z-50">
             <div className="flex items-center space-x-4">
@@ -25,7 +29,7 @@ const Header = ({ onToggleSidebar, isAdmin, showMarketplaceButton, showLogoutBut
             </div>
             <nav className="hidden md:flex space-x-6">
                 <a className="hover:underline" href="#">Inicio</a>
-                {isAdmin && <button className="hover:underline" onClick={() => router.push('/marketplace')}>Marketplace</button>}
+                {isAdmin && <button className="hover:underline" onClick={() => navigateTo('/marketplace')}>Marketplace</button>}
                 <a className="hover:underline" href="#">Acerca de</a>
                 <a className="hover:underline" href="#">Contacto</a>
             </nav>
@@ -47,7 +51,7 @@ const Header = ({ onToggleSidebar, isAdmin, showMarketplaceButton, showLogoutBut
                 {isMenuOpen && (
                     <div className="absolute top-16 left-0 w-full bg-blue-600 text-white flex flex-col items-start p-4 z-40">
                         <a className="hover:underline py-2" href="#">Inicio</a>
-                        {showMarketplaceButton && <button className="hover:underline py-2" onClick={() => router.push('/marketplace')}>Marketplace</button>}
+                        {showMarketplaceButton && <button className="hover:underline py-2" onClick={() => navigateTo('/marketplace')}>Marketplace</button>}
                         <a className="hover:underline py-2" href="#">Acerca de</a>
                         <a className="hover:underline py-2" href="#">Contacto</a>
                         {isAdmin && <a className="hover:underline py-2" href="#">Admin</a>}
