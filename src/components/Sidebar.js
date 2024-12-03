@@ -13,7 +13,7 @@ const Sidebar = ({ isOpen }) => {
             <nav className="p-4">
                 <ul>
                     <li className="mb-4">
-                        <button className="hover:underline" onClick={() => navigateTo('/')}>
+                        <button className="hover:underline" onClick={() => navigateTo('/admin')}>
                             Inicio
                         </button>
                     </li>

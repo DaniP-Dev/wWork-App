@@ -7,7 +7,7 @@ const AgregarP = () => {
         <>
             <AdminLayout>
                 <div className='flex justify-center'>
-                    <AddProduct/>
+                    <AddProduct />
 
                 </div>
 
